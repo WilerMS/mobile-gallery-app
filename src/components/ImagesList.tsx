@@ -1,52 +1,36 @@
-import { View, Text, FlatList, TouchableOpacity, Image, StyleSheet, ListRenderItem } from 'react-native'
-import React, { FC } from 'react'
-import { Photo } from '../api/definitions'
+import React, { type FC } from 'react'
+import { FlatList, StyleSheet } from 'react-native'
+import { type StyleProp, type ViewStyle } from 'react-native'
 
-const ImageItem: ListRenderItem<Photo> = ({ item }) => (
-  <TouchableOpacity
-    style={styles.imageContainer}
-    onPress={() => console.log(item)}
-  >
-    <Image
-      style={styles.image}
-      source={{
-        uri: 'https://images.alphacoders.com/764/764254.png'
-      }}
-    />
-    <Text>{item.photographer}</Text>
-  </TouchableOpacity>
-)
-
+import { type Photo } from '../api/pexels.d'
+import ImageCard from './ImageCard'
 interface ImagesListProps {
   images: Photo[]
+  style?: StyleProp<ViewStyle>
 }
 
-const ImagesList: FC<ImagesListProps> = ({ images }) => {
-  return (
-    <FlatList
-      style={styles.images}
-      numColumns={2}
-      data={images}
-      renderItem={ImageItem}
-      keyExtractor={item => item.id.toString()}
-    />
-  )
-}
+const ImagesList: FC<ImagesListProps> = ({ images, style = {} }) => (
+  <FlatList
+    // @ts-expect-error
+    style={{...styles.container, ...style }}
+    numColumns={2}
+    contentContainerStyle={styles.list}
+    columnWrapperStyle={styles.list}
+    data={images}
+    renderItem={({ item }) => <ImageCard image={item} />}
+    keyExtractor={item => item.id.toString()}
+    showsVerticalScrollIndicator={false}
+  />
+)
 
 const styles = StyleSheet.create({
-  images: {
-    display: 'flex',
+  container: {
+    paddingHorizontal: 10
   },
-  imageContainer: {
-    width: '50%',
-    backgroundColor: 'blue'
-  },
-  image: {
-    width: '100%',
-    aspectRatio: 1,
-    resizeMode: 'cover'
+  list: {
+    rowGap: 10,
+    columnGap: 10
   }
-
 })
 
 export default ImagesList
