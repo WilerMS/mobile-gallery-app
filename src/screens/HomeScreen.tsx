@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
+import { SafeAreaView, StyleSheet, View } from 'react-native'
 import { getImages } from '../api/pexels'
-import { ImagesResponse, Photo } from '../api/definitions'
+import { type ImagesResponse } from '../api/pexels.d'
 import ImagesList from '../components/ImagesList'
 
 export default function HomeScreen() {
@@ -9,7 +9,7 @@ export default function HomeScreen() {
   const [images, setImages] = useState<ImagesResponse>()
 
   useEffect(() => {
-    getImages('web development')
+    getImages('maldives')
       .then((data) => {
         console.log({ data })
         setImages(data.data)
@@ -21,8 +21,17 @@ export default function HomeScreen() {
   if (!images) return null
 
   return (
-    <View>
-      <ImagesList images={images.photos} />
+    <View style={styles.container}>
+      <ImagesList
+        style={{ paddingTop: 100 }} 
+        images={images.photos} 
+      />
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+  }
+})
