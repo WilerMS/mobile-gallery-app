@@ -1,15 +1,16 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import HomeScreen from './src/screens/HomeScreen'
-import ImageScreen from './src/screens/ImageScreen'
-import { AppLogo } from './src/components/AppLogo'
-import SearchButton from './src/components/SearchButton'
-import { SCREENS } from './src/constants/screens'
+import { ImageScreen, HomeScreen } from '@screens'
+import { AppLogo } from '@/components/AppLogo'
+import SearchButton from '@/components/SearchButton'
+import HeaderBackButton from '@/components/HeaderBackButton'
+
+import { SCREENS } from '@/constants/screens'
 
 const Stack = createNativeStackNavigator()
 
-export default function App() {
+export default function App () {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -29,7 +30,7 @@ export default function App() {
             }
           }}
         />
-        <Stack.Screen 
+        <Stack.Screen
           name={SCREENS.IMAGESCREEN}
           // @ts-expect-error
           component={ImageScreen}
@@ -42,6 +43,7 @@ export default function App() {
             headerStyle: {
               backgroundColor: 'transparent'
             },
+            headerLeft: () => <HeaderBackButton />
           }}
         />
       </Stack.Navigator>

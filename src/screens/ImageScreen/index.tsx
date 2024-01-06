@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { View, Text, Image } from 'react-native'
 
-import { type ImageScreenProps } from './screens'
+import { type ImageScreenProps } from '../screens'
 
 const ImageScreen: FC<ImageScreenProps> = ({ route }) => {
 
