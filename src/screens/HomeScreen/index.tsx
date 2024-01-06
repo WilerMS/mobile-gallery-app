@@ -1,6 +1,6 @@
 import { type FC, useEffect, useState } from 'react'
 import { View } from 'react-native'
-import { getImages } from '../../api/pexels'
+import { loadCuratedImages, searchImages } from '@/api/pexels'
 import { type ImagesResponse } from '../../api/pexels.d'
 import ImagesList from '../../components/ImagesList'
 import { HomeScreenStyles } from './styles'
@@ -11,7 +11,7 @@ const HomeScreen: FC<Props> = () => {
   const [images, setImages] = useState<ImagesResponse>()
 
   useEffect(() => {
-    getImages('wallpaper minimalist')
+    loadCuratedImages('mars')
       .then((data) => {
         console.log({ data })
         setImages(data.data)
@@ -25,7 +25,7 @@ const HomeScreen: FC<Props> = () => {
   return (
     <View style={HomeScreenStyles.container}>
       <ImagesList
-        style={{ paddingTop: 100 }}
+        style={{ paddingVertical: 100 }}
         images={images.photos}
       />
     </View>

@@ -1,23 +1,21 @@
 import { useNavigation } from '@react-navigation/native'
-import React, { FC } from 'react'
+import React, { type FC } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Image } from 'react-native-elements'
 import { SCREENS } from '../constants/screens'
-import { Photo } from '../api/pexels.d'
+import { type Photo } from '../api/pexels.d'
 
 interface Props {
   image: Photo
 }
 
 const ImageCard: FC<Props> = ({ image }) => {
-
   const navigation = useNavigation()
 
   const handlePress = () => {
-    // @ts-ignore
+    // @ts-expect-error
     navigation.navigate(SCREENS.IMAGESCREEN, { image })
   }
-
 
   return (
     <TouchableOpacity
@@ -26,22 +24,22 @@ const ImageCard: FC<Props> = ({ image }) => {
     >
       <View style={styles.card}>
         <Image style={styles.image} source={{ uri: image.src.large }} />
-        {/* <View style={styles.alt}>
+        <View style={styles.alt}>
           <Text
             numberOfLines={1}
             ellipsizeMode='tail'
-            style={styles.author} 
+            style={styles.author}
           >
             {image.photographer}
           </Text>
           <Text
             numberOfLines={1}
-            ellipsizeMode='tail' 
-            style={styles.title} 
+            ellipsizeMode='tail'
+            style={styles.title}
           >
             {image.alt}
           </Text>
-        </View> */}
+        </View>
       </View>
     </TouchableOpacity>
   )
@@ -50,12 +48,12 @@ const ImageCard: FC<Props> = ({ image }) => {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 8,
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   image: {
     width: '100%',
-    aspectRatio: .7,
-    resizeMode: 'cover',
+    aspectRatio: 0.7,
+    resizeMode: 'cover'
   },
   alt: {
     width: '100%',
@@ -75,7 +73,7 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   imageContainer: {
-    width: '48.8%',
+    width: '48.8%'
   }
 })
 

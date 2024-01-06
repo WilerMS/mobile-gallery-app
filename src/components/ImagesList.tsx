@@ -12,7 +12,7 @@ interface ImagesListProps {
 const ImagesList: FC<ImagesListProps> = ({ images, style = {} }) => (
   <FlatList
     // @ts-expect-error
-    style={{...styles.container, ...style }}
+    style={{ ...styles.container, ...style }}
     numColumns={2}
     contentContainerStyle={styles.list}
     columnWrapperStyle={styles.list}
