@@ -1,6 +1,6 @@
 import React, { type FC } from 'react'
 import { StyleSheet, Image } from 'react-native'
-// @ts-ignore
+// @ts-expect-error
 import logo from '../assets/logo.png'
 
 interface Props {

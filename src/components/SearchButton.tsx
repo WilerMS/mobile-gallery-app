@@ -1,8 +1,7 @@
-import React, { FC } from 'react'
+import React, { type FC } from 'react'
 import { TouchableOpacity, Image, StyleSheet } from 'react-native'
-// @ts-ignore
+// @ts-expect-error
 import searchImage from '../assets/search.png'
-
 
 interface Props {
   onPress?: () => void
