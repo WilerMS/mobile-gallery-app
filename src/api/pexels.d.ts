@@ -1,12 +1,12 @@
-export interface ImagesResponse {
+export interface PexelsResponse {
   page: number
   per_page: number
-  photos: Photo[]
+  photos: PexelsImage[]
   total_results: number
   next_page: string
 }
 
-export interface Photo {
+export interface PexelsImage {
   id: number
   width: number
   height: number
@@ -14,13 +14,13 @@ export interface Photo {
   photographer: string
   photographer_url: string
   photographer_id: number
-  avg_color: string
+  avg_color: `#${string}`
   src: Src
   liked: boolean
   alt: string
 }
 
-export interface Src {
+interface Src {
   original: string
   large2x: string
   large: string
