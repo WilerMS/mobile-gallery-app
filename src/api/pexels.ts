@@ -27,7 +27,7 @@ const convertResponse = (photos: PexelsImage[]): Photo[] => {
   })
 }
 
-export const searchImages = async (q = ''): Promise<Photo[]> => {
+export const searchPexelsImages = async (q = ''): Promise<Photo[]> => {
   const res = await axios.get<PexelsResponse>(
     `${PEXELS_API_URL}/search?query=${q}&per_page=40`,
     {
@@ -40,7 +40,7 @@ export const searchImages = async (q = ''): Promise<Photo[]> => {
   return convertResponse(res.data.photos)
 }
 
-export const loadCuratedImages = async (): Promise<Photo[]> => {
+export const loadPexelsImages = async (): Promise<Photo[]> => {
   const res = await axios.get<PexelsResponse>(
     `${PEXELS_API_URL}/curated?per_page=40`,
     {

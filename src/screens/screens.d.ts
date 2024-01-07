@@ -1,9 +1,9 @@
-import { SCREENS } from "../constants/screens"
+import { type SCREENS } from '../constants/screens'
 
-import { type RouteProp } from "@react-navigation/native"
-import { type Photo } from "../api/pexels.d"
+import { type RouteProp } from '@react-navigation/native'
+import { type Photo } from '../api/common.d'
 
-type ScreenParamsProps = {
+interface ScreenParamsProps {
   [SCREENS.IMAGESCREEN]: {
     image: Photo
   }
