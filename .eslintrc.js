@@ -35,6 +35,7 @@ module.exports = {
       "@typescript-eslint/no-floating-promises": "off",
       "@typescript-eslint/strict-boolean-expressions": "off",
       "@typescript-eslint/no-empty-interface": "off",
-      "@typescript-eslint/ban-ts-comment": "off"
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-confusing-void-expression": "off"
     }
 }
