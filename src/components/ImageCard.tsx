@@ -1,21 +1,19 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { type FC } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, /* Text, */ StyleSheet, TouchableOpacity } from 'react-native'
 import { Image } from 'react-native-elements'
 import { SCREENS } from '../constants/screens'
-import { type Photo } from '../api/pexels.d'
+import { type Photo } from '../api/common.d'
 
 interface Props {
   image: Photo
 }
 
 const ImageCard: FC<Props> = ({ image }) => {
-  const navigation = useNavigation()
+  const { navigate } = useNavigation()
 
-  const handlePress = () => {
-    // @ts-expect-error
-    navigation.navigate(SCREENS.IMAGESCREEN, { image })
-  }
+  // @ts-expect-error
+  const handlePress = () => navigate(SCREENS.IMAGESCREEN, { image })
 
   return (
     <TouchableOpacity
@@ -23,8 +21,8 @@ const ImageCard: FC<Props> = ({ image }) => {
       onPress={handlePress}
     >
       <View style={styles.card}>
-        <Image style={styles.image} source={{ uri: image.src.large }} />
-        <View style={styles.alt}>
+        <Image style={styles.image} source={{ uri: image.url }} />
+        {/* <View style={styles.alt}>
           <Text
             numberOfLines={1}
             ellipsizeMode='tail'
@@ -39,7 +37,7 @@ const ImageCard: FC<Props> = ({ image }) => {
           >
             {image.alt}
           </Text>
-        </View>
+        </View> */}
       </View>
     </TouchableOpacity>
   )

@@ -1,24 +1,23 @@
 import { type FC, useEffect, useState } from 'react'
 import { View } from 'react-native'
-import { loadCuratedImages, searchImages } from '@/api/pexels'
-import { type ImagesResponse } from '../../api/pexels.d'
+import { searchPexelsImages } from '@/api/pexels'
 import ImagesList from '../../components/ImagesList'
 import { HomeScreenStyles } from './styles'
+import { type Photo } from '@/api/common.d'
+import { searchPixabayImages } from '@/api/pixabay'
 
 interface Props {}
 
 const HomeScreen: FC<Props> = () => {
-  const [images, setImages] = useState<ImagesResponse>()
+  const [images, setImages] = useState<Photo[]>([])
 
   useEffect(() => {
-    loadCuratedImages('mars')
+    searchPixabayImages('minimalist')
       .then((data) => {
         console.log({ data })
-        setImages(data.data)
+        setImages(data)
       })
   }, [])
-
-  console.log({ images })
 
   if (!images) return null
 
@@ -26,7 +25,7 @@ const HomeScreen: FC<Props> = () => {
     <View style={HomeScreenStyles.container}>
       <ImagesList
         style={{ paddingVertical: 100 }}
-        images={images.photos}
+        images={images}
       />
     </View>
   )

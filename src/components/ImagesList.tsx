@@ -2,7 +2,7 @@ import React, { type FC } from 'react'
 import { FlatList, StyleSheet } from 'react-native'
 import { type StyleProp, type ViewStyle } from 'react-native'
 
-import { type Photo } from '../api/pexels.d'
+import { type Photo } from '../api/common.d'
 import ImageCard from './ImageCard'
 interface ImagesListProps {
   images: Photo[]
