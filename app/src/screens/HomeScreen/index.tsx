@@ -1,6 +1,5 @@
 import { type FC, useEffect, useState } from 'react'
 import { View } from 'react-native'
-import { searchPexelsImages } from '@/api/pexels'
 import ImagesList from '../../components/ImagesList'
 import { HomeScreenStyles } from './styles'
 import { type Photo } from '@/api/common.d'
@@ -12,7 +11,7 @@ const HomeScreen: FC<Props> = () => {
   const [images, setImages] = useState<Photo[]>([])
 
   useEffect(() => {
-    searchPixabayImages('minimalist')
+    searchPixabayImages('flower')
       .then((data) => {
         console.log({ data })
         setImages(data)

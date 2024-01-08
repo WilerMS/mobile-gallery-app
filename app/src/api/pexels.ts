@@ -2,8 +2,6 @@ import axios from 'axios'
 import { type PexelsImage, type PexelsResponse } from './pexels.d'
 import { PEXELS_API_KEY, PEXELS_API_URL } from '../constants/env'
 import { type Photo } from './common.d'
-// @ts-expect-error
-import female from '@/assets/female.png'
 
 const convertResponse = (photos: PexelsImage[]): Photo[] => {
   return photos.map((photo) => {
@@ -15,7 +13,7 @@ const convertResponse = (photos: PexelsImage[]): Photo[] => {
       preview: photo.src.medium,
       url: photo.src.original,
       user: photo.photographer,
-      userImage: female,
+      userImage: photo.src.small,
       tags: [],
       likes: 0,
       collections: 0,

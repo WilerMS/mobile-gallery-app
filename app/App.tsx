@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { ImageScreen, HomeScreen } from '@screens'
 import { AppLogo } from '@/components/AppLogo'
 import SearchButton from '@/components/SearchButton'
-// import HeaderBackButton from '@/components/HeaderBackButton'
+// import BackButton from '@/components/BackButton'
 
 import { SCREENS } from '@/constants/screens'
 
@@ -43,7 +43,7 @@ export default function App () {
             headerStyle: {
               backgroundColor: 'transparent'
             },
-            headerLeft: () => <>{/* <HeaderBackButton /> */}</>
+            headerLeft: () => <>{/* <BackButton /> */}</>
           }}
         />
       </Stack.Navigator>

@@ -11,7 +11,7 @@ const convertResponse = (photos: PixabayImage[]): Photo[] => {
       height: photo.imageHeight,
       width: photo.imageWidth,
       size: photo.imageSize,
-      preview: photo.previewURL,
+      preview: photo.webformatURL,
       url: photo.largeImageURL,
       user: photo.user,
       userImage: photo.userImageURL,

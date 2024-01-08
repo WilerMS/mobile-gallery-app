@@ -21,7 +21,7 @@ const ImageCard: FC<Props> = ({ image }) => {
       onPress={handlePress}
     >
       <View style={styles.card}>
-        <Image style={styles.image} source={{ uri: image.url }} />
+        <Image style={styles.image} source={{ uri: image.preview }} />
         {/* <View style={styles.alt}>
           <Text
             numberOfLines={1}

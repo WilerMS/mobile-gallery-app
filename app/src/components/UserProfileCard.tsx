@@ -1,9 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import React, { type FC } from 'react'
 
-// @ts-expect-error
-import female from '@/assets/female.png'
-
 interface Props {
   image: string
   name: string
@@ -22,7 +19,7 @@ const UserProfileCard: FC<Props> = ({
   return (
     <View style={styles.user}>
       <Image
-        source={female}
+        source={{ uri: image }}
         style={styles.userImage}
       />
       <View style={styles.userInfo}>
