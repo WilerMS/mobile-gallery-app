@@ -4,6 +4,7 @@ import ImagesList from '../../components/ImagesList'
 import { HomeScreenStyles } from './styles'
 import { type Photo } from '@/api/common.d'
 import { searchPixabayImages } from '@/api/pixabay'
+import { searchPexelsImages } from '@/api/pexels'
 
 interface Props {}
 
@@ -15,6 +16,9 @@ const HomeScreen: FC<Props> = () => {
       .then((data) => {
         console.log({ data })
         setImages(data)
+      })
+      .catch((err) => {
+        console.log({ err })
       })
   }, [])
 
