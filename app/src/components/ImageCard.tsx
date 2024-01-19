@@ -22,22 +22,6 @@ const ImageCard: FC<Props> = ({ image }) => {
     >
       <View style={styles.card}>
         <Image style={styles.image} source={{ uri: image.preview }} />
-        {/* <View style={styles.alt}>
-          <Text
-            numberOfLines={1}
-            ellipsizeMode='tail'
-            style={styles.author}
-          >
-            {image.photographer}
-          </Text>
-          <Text
-            numberOfLines={1}
-            ellipsizeMode='tail'
-            style={styles.title}
-          >
-            {image.alt}
-          </Text>
-        </View> */}
       </View>
     </TouchableOpacity>
   )
